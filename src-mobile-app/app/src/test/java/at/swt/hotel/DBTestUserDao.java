@@ -45,6 +45,7 @@ public class DBTestUserDao {
 
         List<User> users = db.userDao().getAll();
         assertEquals(1,users.size());
+        
     }
 
     @Test
