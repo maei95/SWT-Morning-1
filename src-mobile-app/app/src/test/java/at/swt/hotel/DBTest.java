@@ -29,6 +29,7 @@ public class DBTest{
     public static final String DB_NAME = "Hotel_db";
 
 
+    
 
     @Test
     public void testUsergetAll() throws Exception {
