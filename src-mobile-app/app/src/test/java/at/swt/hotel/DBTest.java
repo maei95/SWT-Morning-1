@@ -28,7 +28,6 @@ public class DBTest{
     private Context ApplicationProvider;
     public static final String DB_NAME = "Hotel_db";
 
-
     
 
     @Test
