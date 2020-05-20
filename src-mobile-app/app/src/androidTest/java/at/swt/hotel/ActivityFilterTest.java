@@ -14,6 +14,7 @@ import androidx.test.rule.ActivityTestRule;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.isChecked;
 import static androidx.test.espresso.matcher.ViewMatchers.isNotChecked;
@@ -21,6 +22,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
@@ -36,13 +38,14 @@ public class ActivityFilterTest {
     public void ChangeText_sameActivity() {
 
         onView(withId(R.id.editFilterLocation))
+                .perform(scrollTo());
+
+        onView(withId(R.id.editFilterLocation))
                 .perform(typeText(MESSAGE), closeSoftKeyboard());
         onView(withId(R.id.editFilterLocation))
                 .check(matches(withText(MESSAGE)));
         onView(withId(R.id.btnFilterSearch))
                 .perform(click());
-
-
 
         //onView(withId(R.id.send_message)).perform(click())
 
@@ -58,6 +61,9 @@ public class ActivityFilterTest {
 
     @Test
     public void PriceToggles_sameActivity() {
+        onView(withId(R.id.priceToggle1))
+                .perform(scrollTo());
+
         onView(withId(R.id.priceToggle1))
                 .perform(click());
         onView(withId(R.id.priceToggle1))
@@ -87,6 +93,9 @@ public class ActivityFilterTest {
     @Test
     public void CategoryToggles_sameActivity() {
         onView(withId(R.id.categoryToggle1))
+                .perform(scrollTo());
+
+        onView(withId(R.id.categoryToggle1))
                 .perform(click());
         onView(withId(R.id.categoryToggle1))
                 .check(matches(isChecked()));
@@ -107,14 +116,11 @@ public class ActivityFilterTest {
                 .check(matches(isChecked()));
     }
 
-
     @Test
     public void ActivitiesToggles_sameActivity() {
 
-        onView(ViewMatchers.withId(R.id.activityToggleButton1))
-                .perform(ViewActions.swipeUp())
-                .check(matches(isDisplayed()));
-
+        onView(withId(R.id.activityToggleButton1))
+                .perform(scrollTo());
 
         onView(withId(R.id.activityToggleButton1))
                 .perform(click());
@@ -132,6 +138,9 @@ public class ActivityFilterTest {
                 .check(matches(isNotChecked()));
 
         onView(withId(R.id.activityToggleButton4))
+                .perform(scrollTo());
+
+        onView(withId(R.id.activityToggleButton4))
                 .perform(click());
         onView(withId(R.id.activityToggleButton4))
                 .check(matches(isChecked()));
@@ -145,7 +154,6 @@ public class ActivityFilterTest {
                 .perform(click());
         onView(withId(R.id.activityToggleButton6))
                 .check(matches(isChecked()));
-
     }
 
 }

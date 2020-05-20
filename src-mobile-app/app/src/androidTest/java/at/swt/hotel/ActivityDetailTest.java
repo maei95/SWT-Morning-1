@@ -14,6 +14,7 @@ import androidx.test.rule.ActivityTestRule;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.isChecked;
 import static androidx.test.espresso.matcher.ViewMatchers.isNotChecked;
@@ -67,10 +68,8 @@ public class ActivityDetailTest {
     @Test
     public void ActivitiesToggles_sameActivity() {
 
-        onView(ViewMatchers.withId(R.id.scrollViewActivityDetail))
-                .perform(ViewActions.swipeUp())
-                .check(matches(isDisplayed()));
-
+        onView(withId(R.id.activityToggleButton6Detail))
+                .perform(scrollTo());
 
         onView(withId(R.id.activityToggleButton1Detail))
                 .perform(click());
