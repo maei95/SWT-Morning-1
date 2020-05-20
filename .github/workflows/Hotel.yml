@@ -34,29 +34,29 @@ jobs:
       run: ./gradlew test
       working-directory: ${{env.working-directory}}
 
-  #android front-end tests      
-  #test_android:
+  #  android front-end tests      
+  test_android:
     
-    #env: 
-      #working-directory: src-mobile-app
+    env: 
+      working-directory: src-mobile-app
       
-    #runs-on: macos-latest
-    #runs-on: ubuntu-latest
+    runs-on: macos-latest
+    runs-on: ubuntu-latest
     
-    #steps:
-    #- name: checkout
-      #uses: actions/checkout@v2
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
 
-    #- name: Make gradlew executable
-      #run: chmod +x ./gradlew
-      #working-directory: ${{env.working-directory}}
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
+      working-directory: ${{env.working-directory}}
     
-    #- name: Execute android front-end tests
-      #uses: reactivecircus/android-emulator-runner@v2
-      #with:
-        #api-level: 23
-        #target: default
-        #arch: x86
-        #profile: Nexus 5X
-        #script: ./gradlew connectedCheck --stacktrace
-        #working-directory: ${{env.working-directory}}
+    - name: Execute android front-end tests
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 23
+        target: default
+        arch: x86
+        profile: Nexus 5X
+        script: ./gradlew connectedCheck --stacktrace
+        working-directory: ${{env.working-directory}}
