@@ -40,7 +40,6 @@ jobs:
     env: 
       working-directory: src-mobile-app
       
-    runs-on: macos-latest
     runs-on: ubuntu-latest
     
     steps:
