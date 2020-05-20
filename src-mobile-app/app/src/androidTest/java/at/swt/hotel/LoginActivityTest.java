@@ -41,9 +41,6 @@ public class LoginActivityTest {
 
     @Test
     public void LoginSuccesfullTestActivity() {
-        onView(withId(R.id.editUserName))
-                .perform(scrollTo());
-
         // Type text and then press the button.
         onView(withId(R.id.editUserName))
                 .perform(typeText("admin"), closeSoftKeyboard());
@@ -54,16 +51,11 @@ public class LoginActivityTest {
         onView(withId(R.id.editPassword))
                 .check(matches(withText("password")));
         onView(withId(R.id.btn_login_loginactivity)).perform(click());
-        intended(hasComponent(AdminActivity.class.getName()));
-        onView(withId(R.id.btn_back_main)).perform(click());
         intended(hasComponent(MainActivity.class.getName()));
     }
 
     @Test
     public void LoginFailedTestActivity() {
-        onView(withId(R.id.editUserName))
-                .perform(scrollTo());
-
         // Type text and then press the button.
         onView(withId(R.id.editUserName))
                 .perform(typeText("admin"), closeSoftKeyboard());
