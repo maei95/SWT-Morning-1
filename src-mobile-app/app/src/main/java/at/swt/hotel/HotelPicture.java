@@ -9,9 +9,11 @@ import androidx.room.PrimaryKey;
 public class HotelPicture {
 
     public HotelPicture(
-            final int    hotelId,
+            final int id,
+            final int hotelId,
             final int picture
     ) {
+        this.id = id;
         this.hotelId = hotelId;
         this.picture = picture;
     }

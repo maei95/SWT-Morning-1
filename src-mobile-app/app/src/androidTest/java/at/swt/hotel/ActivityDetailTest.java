@@ -44,6 +44,10 @@ public class ActivityDetailTest {
 
     @Test
     public void CategoryToggles_sameActivity() {
+        onView(ViewMatchers.withId(R.id.scrollViewActivityDetail))
+                .perform(ViewActions.swipeUp())
+                .check(matches(isDisplayed()));
+
         onView(withId(R.id.categoryToggle1Detail))
                 .perform(click());
         onView(withId(R.id.categoryToggle1Detail))

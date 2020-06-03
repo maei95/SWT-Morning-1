@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -102,19 +103,14 @@ public class MainActivity extends AppCompatActivity {
                 hotelList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView parent, View view, int position, long id) {
-                        /*Hotel hotel = adapter.getHotel(position);
-                        HotelPicture picture = adapter.getHotelPicture(position);
-                        // TODO: Hotelcontainer here!
 
-                        Log.d("MAIN", "name1: " + hotel.name);
-                        db.hotelDao().deleteHotelPicture(picture);
-                        db.hotelDao().deleteHotel(hotel);
-                        Log.d("MAIN", "position: " + position);
+                        HotelContainer hc = (HotelContainer) parent.getItemAtPosition(position);
+                        HotelProvider.getInstance().deleteHotel(hc);
+
                         finish();
                         overridePendingTransition(0,0);
                         startActivity(getIntent());
                         overridePendingTransition(0,0);
-                         */
                     }
                 });
 
@@ -134,9 +130,13 @@ public class MainActivity extends AppCompatActivity {
                         Bundle bundle = new Bundle();
                         bundle.putBoolean("edit", true);
                         //TODO: add to bundle Hotel Container
-                        Intent EditAddActivityIntent = new Intent(MainActivity.this, EditAddActivity.class);
-                        EditAddActivityIntent.putExtras(bundle);
-                        startActivity(EditAddActivityIntent);
+                        HotelContainer hc = (HotelContainer) parent.getItemAtPosition(position);
+                        bundle.putInt("HCId", hc.hotel.id);
+
+                        Intent editAddActivityIntent = new Intent(MainActivity.this, EditAddActivity.class);
+                        editAddActivityIntent.putExtras(bundle);
+                        startActivity(editAddActivityIntent);
+
 
                     }
                 });

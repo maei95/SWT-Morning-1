@@ -19,5 +19,7 @@ public class HotelContainer {
         hotelDao.deleteHotelPictureByHotelId(hotel.id);
         hotelDao.deleteHotel(hotel);
     }
+
+
 }
 

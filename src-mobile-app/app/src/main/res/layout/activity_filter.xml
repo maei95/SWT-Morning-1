@@ -7,6 +7,7 @@
     tools:context=".FilterActivity">
 
     <ScrollView
+        android:id="@+id/filter_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -241,7 +242,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:checked="true"
+                        android:checked="false"
                         android:text="ToggleButton"
                         android:textOff="Climbing"
                         android:textOn="Climbing" />
@@ -251,7 +252,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:checked="true"
+                        android:checked="false"
                         android:text="ToggleButton"
                         android:textOff="Mountainbiking"
                         android:textOn="Mountainbiking" />

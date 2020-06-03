@@ -24,7 +24,7 @@ public class DataInitializer extends AppCompatActivity {
                 "Das Gebäude ist ein beeindruckender Hochbau aus Stahl, Beton und Glas und bietet einen atemberaubenden Blick auf die Altstadt und das Umland. Besonders das Frühstück im 15. " +
                 "Stock und ein Drink abends von der Rooftop-Bar „hu:goes14“ mit Dachterrasse im 16. Stock werden einen einzigartigen Eindruck hinterlassen";
         firstHotel.price = 270;
-        firstHotel.category = "Romantisch";
+        firstHotel.category = "Romantic";
         firstHotel.location = "Salzburg Rainerstraße 28 5020 Salzburg Österreich";
         firstHotel.stars = 4;
 
@@ -72,22 +72,22 @@ public class DataInitializer extends AppCompatActivity {
         ratingHotel1_3.userId = user3.id;
 
         HotelInterest interestHotel1_1 = new HotelInterest();
-        interestHotel1_1.type = "Fitnesscenter";
+        interestHotel1_1.type = "Climbing";
         interestHotel1_1.description = "Fitnesscenter";
         interestHotel1_1.hotelId = firstHotel.id;
 
         HotelInterest interestHotel1_2 = new HotelInterest();
-        interestHotel1_2.type = "Spa und Wellnesscenter";
+        interestHotel1_2.type = "Mountainbiking";
         interestHotel1_2.description = "Spa und Wellnesscenter";
         interestHotel1_2.hotelId = firstHotel.id;
 
         HotelInterest interestHotel1_3 = new HotelInterest();
-        interestHotel1_3.type = "Bibliothek";
+        interestHotel1_3.type = "Hiking";
         interestHotel1_3.description = "Bibliothek";
         interestHotel1_3.hotelId = firstHotel.id;
 
         HotelInterest interestHotel1_4 = new HotelInterest();
-        interestHotel1_4.type = "Kino";
+        interestHotel1_4.type = "Diving";
         interestHotel1_4.description = "Kino";
         interestHotel1_4.hotelId = firstHotel.id;
 
@@ -105,7 +105,7 @@ public class DataInitializer extends AppCompatActivity {
                 "Eine Übernachtung im BubbleTent ist ein echtes Natur-Erlebnis, abseits des Gewoehnlichen.\n" +
                 "Geniesse die einzigartiger Lage mit freiem Blick auf die vielfältige Landschaft des Salzkammerguts. Abseits vom Stadttrubel, kannst du Körper und Seele baumeln lassen ohne auf den Komfort eines Hotels zu verzichten.\n";
         secondHotel.price = 95;
-        secondHotel.category = "Abenteuer";
+        secondHotel.category = "Adventure";
         secondHotel.stars = 1;
         secondHotel.location = "Feld 2, 4853 Steinbach am Attersee";
 
@@ -149,22 +149,22 @@ public class DataInitializer extends AppCompatActivity {
         ratingHotel2_3.userId = user6.id;
 
         HotelInterest interestHotel2_1 = new HotelInterest();
-        interestHotel2_1.type = "Wandern";
+        interestHotel2_1.type = "Hiking";
         interestHotel2_1.description = "Wandern";
         interestHotel2_1.hotelId = secondHotel.id;
 
         HotelInterest interestHotel2_2 = new HotelInterest();
-        interestHotel2_2.type = "Mountain Biken";
+        interestHotel2_2.type = "Mountainbiking";
         interestHotel2_2.description = "Mountain Biken";
         interestHotel2_2.hotelId = secondHotel.id;
 
         HotelInterest interestHotel2_3 = new HotelInterest();
-        interestHotel2_3.type = "Paragliding";
+        interestHotel2_3.type = "Diving";
         interestHotel2_3.description = "Paragliding";
         interestHotel2_3.hotelId = secondHotel.id;
 
         HotelInterest interestHotel2_4 = new HotelInterest();
-        interestHotel2_4.type = "Bungee Jumping";
+        interestHotel2_4.type = "Surfing";
         interestHotel2_4.description = "Bungee Jumping";
         interestHotel2_4.hotelId = secondHotel.id;
 
@@ -184,8 +184,8 @@ public class DataInitializer extends AppCompatActivity {
                 "Verschiedene Restaurants und Geschäfte im Zentrum von Graz können Sie vom a&o Graz Hauptbahnhof in 5 Gehminuten erreichen.\n" +
                 "Gries ist bei Reisenden, die an einer schönen Altstadt, Spazieren gehen und Sightseeing interessiert sind, sehr beliebt.\n\n";
         thirdHotel.price = 40;
-        thirdHotel.category = "Hostel";
-        thirdHotel.stars = 3;
+        thirdHotel.category = "Family";
+        thirdHotel.stars = 5;
         thirdHotel.location = "Eggenberger Straße 7, Gries, 8020 Graz, Österreich";
 
         User user7 = new User();
@@ -225,22 +225,22 @@ public class DataInitializer extends AppCompatActivity {
         ratingHotel3_3.userId = user9.id;
 
         HotelInterest interestHotel3_1 = new HotelInterest();
-        interestHotel3_1.type = "Live-Sportveranstaltung";
+        interestHotel3_1.type = "Climbing";
         interestHotel3_1.description = "Live-Sportveranstaltung";
         interestHotel3_1.hotelId = thirdHotel.id;
 
         HotelInterest interestHotel3_2 = new HotelInterest();
-        interestHotel3_2.type = "Bibliothek";
+        interestHotel3_2.type = "Surfing";
         interestHotel3_2.description = "Bibliothek";
         interestHotel3_2.hotelId = thirdHotel.id;
 
         HotelInterest interestHotel3_3 = new HotelInterest();
-        interestHotel3_3.type = "Fahrradverleih";
+        interestHotel3_3.type = "Mountainbiking";
         interestHotel3_3.description = "Fahrradverleih";
         interestHotel3_3.hotelId = thirdHotel.id;
 
         HotelInterest interestHotel3_4 = new HotelInterest();
-        interestHotel3_4.type = "Billard";
+        interestHotel3_4.type = "Skating";
         interestHotel3_4.description = "Billard";
         interestHotel3_4.hotelId = thirdHotel.id;
 
@@ -259,7 +259,7 @@ public class DataInitializer extends AppCompatActivity {
                 "Gries ist bei Reisenden, die an einer schönen Altstadt, Spazieren gehen und Sightseeing interessiert sind, sehr beliebt.\n" +
                 "Laut unabhängiger Gästebewertungen ist das der beliebteste Teil von Graz.";
         fourthHotel.price = 120;
-        fourthHotel.category = "Luxurious";
+        fourthHotel.category = "Sport";
         fourthHotel.stars = 4;
         fourthHotel.location = "Grieskai 4-8, Gries, 8020 Graz, Österreich";
 
@@ -300,12 +300,12 @@ public class DataInitializer extends AppCompatActivity {
         ratingHotel4_3.userId = user12.id;
 
         HotelInterest interestHotel4_1 = new HotelInterest();
-        interestHotel4_1.type = "Fitnesscenter";
+        interestHotel4_1.type = "Climbing";
         interestHotel4_1.description = "Fitnesscenter";
         interestHotel4_1.hotelId = fourthHotel.id;
 
         HotelInterest interestHotel4_2 = new HotelInterest();
-        interestHotel4_2.type = "Spa und Wellnesscenter";
+        interestHotel4_2.type = "Hiking";
         interestHotel4_2.description = "Spa und Wellnesscenter";
         interestHotel4_2.hotelId = fourthHotel.id;
 

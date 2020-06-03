@@ -26,6 +26,7 @@
                 android:id="@+id/textView2Detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
                 android:text="Hotel Star Rating" />
 
             <RatingBar
@@ -73,146 +74,55 @@
                 android:id="@+id/textView9Detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
                 android:text="Description" />
 
-            <EditText
+            <TextView
                 android:id="@+id/txtDescription"
                 android:layout_width="match_parent"
-                android:layout_height="84dp"
-                android:editable="false"
+                android:layout_height="100dp"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"/>
 
             <TextView
                 android:id="@+id/textView10Detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Category" />
-
-            <LinearLayout
+                android:textStyle="bold"
+                android:text="Category"/>
+            <TextView
+                android:id="@+id/categoryDetail"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="20dp"/>
 
-                <ToggleButton
-                    android:id="@+id/categoryToggle1Detail"
-                    android:layout_width="232dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Romantic"
-                    android:textOff="Romantic"
-                    android:textOn="Romantic" />
-
-                <ToggleButton
-                    android:id="@+id/categoryToggle2Detail"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Adventure"
-                    android:textOff="Adventure"
-                    android:textOn="Adventure" />
-
-                <ToggleButton
-                    android:id="@+id/categoryToggle3Detail"
-                    android:layout_width="236dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Family"
-                    android:textOff="Family"
-                    android:textOn="Family" />
-
-                <ToggleButton
-                    android:id="@+id/categoryToggle4Detail"
-                    android:layout_width="236dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Sport"
-                    android:textOff="Sport"
-                    android:textOn="Sport" />
-
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView11Detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="Activities" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/activityDetail"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="20dp"/>
 
-                <ToggleButton
-                    android:id="@+id/activityToggleButton1Detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="false"
-                    android:text="ToggleButton"
-                    android:textOff="Surfing"
-                    android:textOn="Surfing" />
+            <TextView
+                android:id="@+id/textView12Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:text="Ratings" />
 
-                <ToggleButton
-                    android:id="@+id/activityToggleButton2Detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="true"
-                    android:text="ToggleButton"
-                    android:textOff="Climbing"
-                    android:textOn="Climbing" />
-
-                <ToggleButton
-                    android:id="@+id/activityToggleButton3Detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="true"
-                    android:text="ToggleButton"
-                    android:textOff="Mountainbiking"
-                    android:textOn="Mountainbiking" />
-            </LinearLayout>
-
-            <LinearLayout
+            <ListView
+                android:id="@+id/hotelRatingDetail"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ToggleButton
-                    android:id="@+id/activityToggleButton4Detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="false"
-                    android:text="ToggleButton"
-                    android:textOff="Hiking"
-                    android:textOn="Hiking" />
-
-                <ToggleButton
-                    android:id="@+id/activityToggleButton5Detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="false"
-                    android:text="ToggleButton"
-                    android:textOff="Diving"
-                    android:textOn="Diving" />
-
-                <ToggleButton
-                    android:id="@+id/activityToggleButton6Detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="false"
-                    android:text="ToggleButton"
-                    android:textOff="Skating"
-                    android:textOn="Skating" />
-
-            </LinearLayout>
+                android:layout_height="match_parent"/>
 
         </LinearLayout>
     </ScrollView>

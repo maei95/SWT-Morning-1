@@ -2,10 +2,11 @@ package at.swt.hotel;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RatingBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,28 +20,26 @@ public class FilterActivity extends AppCompatActivity {
     List<HotelContainer> activityFilteredHotels;
     List<HotelContainer> categoryFilteredHotels;
     List<HotelContainer> locationFilteredHotels;
+    boolean pirceFilter = false;
+    boolean categoryFilter = false;
+    boolean activityFilter = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
-        ImageButton btnSearch = findViewById(R.id.btnFilterSearch);
-        switchToHotelView(btnSearch);
+        pirceFilter = false;
+        categoryFilter = false;
+        activityFilter = false;
 
         HotelProvider.getInstance().resetHotelList();
         priceFilteredHotels = new ArrayList<>();
-        priceFilteredHotels.addAll(HotelProvider.getInstance().getHotelContainerList());
-        starFilteredHotels = new ArrayList<>();
-        starFilteredHotels.addAll(HotelProvider.getInstance().getHotelContainerList());
         activityFilteredHotels = new ArrayList<>();
-        activityFilteredHotels.addAll(HotelProvider.getInstance().getHotelContainerList());
         categoryFilteredHotels = new ArrayList<>();
-        categoryFilteredHotels.addAll(HotelProvider.getInstance().getHotelContainerList());
-        locationFilteredHotels = new ArrayList<>();
-        locationFilteredHotels.addAll(HotelProvider.getInstance().getHotelContainerList());
+        starFilteredHotels = new ArrayList<>();
 
         Button priceButton0_50 = findViewById(R.id.priceToggle1);
-        priceButton0_50.setOnClickListener(new View.OnClickListener(){
+        priceButton0_50.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 setPriceFilter(0, 50);
@@ -79,21 +78,128 @@ public class FilterActivity extends AppCompatActivity {
             }
         });
 
-
-        Button setFilterButton = findViewById(R.id.applyFilterButton);
-        setFilterButton.setOnClickListener(new View.OnClickListener(){
+        Button categoryRomantic  = findViewById(R.id.categoryToggle1);
+        categoryRomantic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<HotelContainer> filteredHotels = priceFilteredHotels;
+                setCategoryFilter(categoryRomantic.getText().toString());
+            }
+        });
+
+        Button categoryAdventure = findViewById(R.id.categoryToggle2);
+        categoryAdventure.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setCategoryFilter(categoryAdventure.getText().toString());
+            }
+        });
+        Button categoryFamily    = findViewById(R.id.categoryToggle3);
+        categoryFamily.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setCategoryFilter(categoryFamily.getText().toString());
+            }
+        });
+        Button categorySport     = findViewById(R.id.categoryToggle4);
+        categorySport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setCategoryFilter(categorySport.getText().toString());
+            }
+        });
+
+        Button activitySurfing  = findViewById(R.id.activityToggleButton1);
+        activitySurfing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setActivityFilter(activitySurfing.getText().toString());
+            }
+        });
+        Button activityClimbing = findViewById(R.id.activityToggleButton2);
+        activityClimbing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setActivityFilter(activityClimbing.getText().toString());
+            }
+        });
+        Button activityMtb      = findViewById(R.id.activityToggleButton3);
+        activityMtb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setActivityFilter(activityMtb.getText().toString());
+            }
+        });
+        Button activityHiking   = findViewById(R.id.activityToggleButton4);
+        activityHiking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setActivityFilter(activityHiking.getText().toString());
+            }
+        });
+        Button activityDiving   = findViewById(R.id.activityToggleButton5);
+        activityDiving.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setActivityFilter(activityDiving.getText().toString());
+            }
+        });
+        Button activitySkating  = findViewById(R.id.activityToggleButton6);
+        activitySkating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setActivityFilter(activitySkating.getText().toString());
+            }
+        });
+
+        Button setFilterButton = findViewById(R.id.applyFilterButton);
+        setFilterButton.setOnClickListener(applyFilter());
+
+        ImageButton btnSearch = findViewById(R.id.btnFilterSearch);
+        btnSearch.setOnClickListener(applyFilter());
+    }
+
+    private View.OnClickListener applyFilter() {
+        return new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                EditText location = findViewById(R.id.editFilterLocation);
+                String locationText = location.getText().toString();
+
+                List<HotelContainer> filteredHotels = new ArrayList<>();
+                if (locationText.isEmpty()) {
+                    filteredHotels = HotelProvider.getInstance().getHotelContainerList();
+                } else {
+                    for (HotelContainer hc : HotelProvider.getInstance().getHotelContainerList()) {
+                        if (hc.hotel.location.toLowerCase().contains(locationText.toLowerCase())) {
+                            filteredHotels.add(hc);
+                        }
+                    }
+                }
+
+                RatingBar star = findViewById(R.id.ratingBar);
+                setStarFilter(Math.round(star.getRating()));
                 filteredHotels.retainAll(starFilteredHotels);
-                filteredHotels.retainAll(activityFilteredHotels);
-                filteredHotels.retainAll(categoryFilteredHotels);
-                filteredHotels.retainAll(locationFilteredHotels);
-                HotelProvider.getInstance().updateHotelList(filteredHotels); //TODO calculate Schnittmenge
+
+                if (!priceFilteredHotels.isEmpty() && pirceFilter) {
+                    filteredHotels.retainAll(priceFilteredHotels);
+                }
+
+                if (!categoryFilteredHotels.isEmpty() && categoryFilter)
+                {
+                    filteredHotels.retainAll(categoryFilteredHotels);
+                }
+
+                if (!activityFilteredHotels.isEmpty() && activityFilter)
+                {
+                    filteredHotels.retainAll(activityFilteredHotels);
+                }
+
+                HotelProvider.getInstance().updateHotelList(filteredHotels);
                 Intent mainActivityIntent = new Intent(FilterActivity.this, MainActivity.class);
                 FilterActivity.this.startActivity(mainActivityIntent);
             }
-        });
+        };
     }
 
     public void switchToHotelView(ImageButton btn) {
@@ -108,10 +214,39 @@ public class FilterActivity extends AppCompatActivity {
     }
 
     public void setPriceFilter(final int min, final int max) {
+        pirceFilter = true;
         for(HotelContainer hc : HotelProvider.getInstance().getHotelContainerList()) {
-           if (!(hc.hotel.price <= max && hc.hotel.price >= min)) {
-               priceFilteredHotels.removeIf(tmp->tmp.hotel.id == hc.hotel.id);
+           if (hc.hotel.price <= max && hc.hotel.price >= min) {
+               priceFilteredHotels.add(hc);
            }
+        }
+    }
+
+    public void setCategoryFilter(final String category) {
+        categoryFilter = true;
+        for(HotelContainer hc : HotelProvider.getInstance().getHotelContainerList()) {
+            if (hc.hotel.category.equalsIgnoreCase(category)) {
+                categoryFilteredHotels.add(hc);
+            }
+        }
+    }
+
+    public void setActivityFilter(final String activity) {
+        activityFilter = true;
+        for(HotelContainer hc : HotelProvider.getInstance().getHotelContainerList()) {
+            for (HotelInterest hi : hc.hotelinterest) {
+                if (hi.type.equalsIgnoreCase(activity)) {
+                    activityFilteredHotels.add(hc);
+                }
+            }
+        }
+    }
+
+    public void setStarFilter(final int minimumStars) {
+        for(HotelContainer hc : HotelProvider.getInstance().getHotelContainerList()) {
+            if (hc.hotel.stars >= minimumStars) {
+                starFilteredHotels.add(hc);
+            }
         }
     }
 }

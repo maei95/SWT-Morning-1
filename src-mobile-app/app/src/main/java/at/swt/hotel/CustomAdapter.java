@@ -38,7 +38,7 @@ public class CustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {return null;}
+    public Object getItem(int i) { return hotelList.get(i);}
 
     @Override
     public long getItemId(int i) {
